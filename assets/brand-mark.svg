@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Space City Apps</title>
+  <desc id="desc">A rounded star with an orbital ring</desc>
+  <defs>
+    <linearGradient id="g" x1="12" y1="10" x2="84" y2="86" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8be9ff"/>
+      <stop offset=".52" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#ff7ac8"/>
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="26" fill="#101024"/>
+  <path d="m48 22 6.5 14.4L70 38l-11.6 10.5L61.6 64 48 56.2 34.4 64l3.2-15.5L26 38l15.5-1.6L48 22Z" fill="url(#g)"/>
+  <path d="M15.5 55.5c8.2 9.4 27.8 10.7 46 3.1 18.1-7.6 28-21.2 22-30.6" fill="none" stroke="#f3f5ff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="83" cy="28" r="5" fill="#ffce73"/>
+</svg>
+
