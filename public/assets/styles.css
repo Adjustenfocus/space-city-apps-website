@@ -3,14 +3,14 @@
   --ink: #f5f6ff;
   --muted: #b9b8cf;
   --faint: #85839f;
-  --page: #080815;
-  --surface: #111126;
-  --surface-2: #171731;
+  --page: #0b0f17;
+  --surface: #1b2330;
+  --surface-2: #2e3a4d;
   --line: rgba(255,255,255,.11);
-  --cyan: #8be9ff;
-  --violet: #8c70ff;
-  --pink: #ff7ac8;
-  --orange: #ff9b63;
+  --cyan: #7ad6d9;
+  --violet: #d8aa5a;
+  --pink: #ff8a1a;
+  --orange: #e34300;
   --max: 1120px;
   --radius: 24px;
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -22,8 +22,8 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at 8% -10%, rgba(124,92,255,.22), transparent 35rem),
-    radial-gradient(circle at 100% 25%, rgba(139,233,255,.10), transparent 32rem),
+    radial-gradient(circle at 8% -10%, rgba(227,67,0,.18), transparent 35rem),
+    radial-gradient(circle at 100% 25%, rgba(122,214,217,.10), transparent 32rem),
     var(--page);
   font-size: 16px;
   line-height: 1.65;
@@ -53,7 +53,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   z-index: 20;
   top: 0;
   border-bottom: 1px solid rgba(255,255,255,.08);
-  background: rgba(8,8,21,.82);
+  background: rgba(11,15,23,.86);
   backdrop-filter: blur(18px);
 }
 .nav {
@@ -74,7 +74,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   letter-spacing: -.02em;
   text-decoration: none;
 }
-.brand img { width: 38px; height: 38px; }
+.brand img {
+  width: 190px;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+}
 .nav-links { display: flex; align-items: center; gap: 1.2rem; }
 .nav-links a { color: var(--muted); font-size: .94rem; text-decoration: none; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: white; }
@@ -118,25 +123,29 @@ h3 { font-size: 1.35rem; }
 .button:hover { color: white; border-color: rgba(255,255,255,.3); transform: translateY(-1px); }
 .button.primary:hover { color: #0a0918; filter: brightness(1.06); }
 
-.orbit-card {
+.brand-hero {
   position: relative;
-  min-height: 390px;
+  min-height: 460px;
   display: grid;
   place-items: center;
+  isolation: isolate;
 }
-.orbit-card::before, .orbit-card::after {
+.brand-hero::before {
   content: "";
   position: absolute;
-  border: 1px solid rgba(139,233,255,.22);
+  z-index: -1;
+  width: min(440px, 75vw);
+  aspect-ratio: 1;
   border-radius: 50%;
-  transform: rotate(-20deg);
+  background: radial-gradient(circle, rgba(255,129,26,.18), rgba(140,112,255,.09) 42%, transparent 70%);
+  filter: blur(10px);
 }
-.orbit-card::before { width: 360px; height: 170px; }
-.orbit-card::after { width: 290px; height: 290px; border-color: rgba(255,122,200,.14); }
-.hero-mark { position: relative; z-index: 2; width: 170px; filter: drop-shadow(0 24px 70px rgba(124,92,255,.4)); }
-.orb { position: absolute; z-index: 3; width: 13px; height: 13px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 24px var(--orange); }
-.orb.one { top: 25%; right: 5%; }
-.orb.two { bottom: 17%; left: 5%; width: 8px; height: 8px; background: var(--cyan); box-shadow: 0 0 18px var(--cyan); }
+.brand-hero img {
+  width: min(390px, 82vw);
+  max-height: 540px;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 70px rgba(0,0,0,.48));
+}
 
 .section { padding: clamp(4rem, 8vw, 7rem) 0; }
 .section-head { max-width: 720px; margin-bottom: 2.3rem; }
@@ -225,22 +234,21 @@ details p { padding: 0 1.2rem 1rem; margin: 0; color: var(--muted); }
 
 @media (max-width: 800px) {
   .hero-grid, .product-hero, .app-card, .content-layout { grid-template-columns: 1fr; }
-  .orbit-card { min-height: 260px; }
-  .orbit-card::before { width: 300px; height: 140px; }
-  .orbit-card::after { width: 225px; height: 225px; }
-  .hero-mark { width: 130px; }
+  .brand-hero { min-height: 360px; }
+  .brand-hero img { width: min(330px, 78vw); }
   .app-visual { min-height: 360px; }
   .side-nav { display: none; }
 }
 
 @media (max-width: 620px) {
   .nav { min-height: 64px; }
+  .brand img { width: 145px; max-height: 48px; }
   .nav-links a:not(.nav-support) { display: none; }
   .grid-3, .feature-grid { grid-template-columns: 1fr; }
   .contact-card, .footer-grid { grid-template-columns: 1fr; }
   .footer-links { justify-content: flex-start; }
   .hero { padding-top: 4rem; }
-  .orbit-card { overflow: hidden; }
+  .brand-hero { min-height: 320px; overflow: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) {
